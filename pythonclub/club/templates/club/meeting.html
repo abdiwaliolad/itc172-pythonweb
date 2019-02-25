@@ -4,16 +4,17 @@
 <table class="table">
 
     <tr>
-        <th>Meeting tittle</th>
-        <th>meeting agend</th>
+        <th>tittle</th>
+
+
 
     </tr>
-    {% for item in meeting_list %}
+    {% for Meeting in meeting_list %}
     <tr>
-        <td><a href="{% url 'meetingDetail' id=Meeting.id %}">
-            {{ item.meetingtittle }}</a></td>
-        <td>{{ item.location}}</td>
-
+        <td>
+            <a href="{% url 'meetingDetail' id=Meeting.id %}"></a>
+        </td>
+        <td>{{ Meeting.meetingtitle}}</td>
     </tr>
     {% endfor %}
 </table>

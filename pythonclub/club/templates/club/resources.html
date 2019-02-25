@@ -6,12 +6,17 @@
     <tr>
         <th> Name</th>
         <th>type</th>
+        <th>resource URL</th>
+        <th>EntryDate</th>
 
     </tr>
-    {% for item in resource_list %}
+    {% for Resources in resource_list %}
     <tr>
-        <td>{{ item.resourcename}}</td>
-        <td>{{ item.resourcetype}}</td>
+        <td>{{ Resources.resourcename}}</td>
+        <td>{{ Resources.resourcetype}}</td>
+        <td>{{ Resources.ResourceURL}}</td>
+        <td>{{ Resources.entrydate}}</td>
+
 
 
 

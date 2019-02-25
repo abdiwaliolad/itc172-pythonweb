@@ -5,7 +5,7 @@ class Meeting(models.Model):
     meetingtitle=models.CharField(max_length=255)
     meetingdate=models.DateField()
     location=models.CharField(max_length=255)
-    agend=models.TextField()
+    agenda=models.TextField()
 
     def __str__(self):
         return self.meetingtitle
