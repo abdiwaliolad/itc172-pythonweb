@@ -10,15 +10,6 @@ class MeetingTest(TestCase):
         self.assertEqual(str(Meeting._meta.db_table), 'Meeting')
 
 
-class MeetingMinutesTest(TestCase):
-    def test_stringOutput(self):
-        meetingminutes=MeetingMinutes(minutetext='50 minutes')
-        self.assertEqual(str(meetingminutes),MeetingMinutes.minutetext)
-
-    def test_tablename(self):
-        self.assertEqual(str(MeetingMinutes._meta.db_table), 'MeetingMinutes')
-
-
 class ResourceTest(TestCase):
     def test_stringOutput(self):
         resource=Resource(resourcename='soccer field')
@@ -27,3 +18,12 @@ class ResourceTest(TestCase):
     def test_tablename(self):
         self.assertEqual(str(Resource._meta.db_table), 'Resource')
 
+ # Valid Form Data
+    def test_MeetingForm_is_valid(self):
+        form = MeetingForm(data={'meetingtittle': "soccer field", 'meetingdate': "02/22/2019", 'location': "seattle central", 'agenda': "practing soccer,shoting"})
+        self.assertTrue(form.is_valid())
+
+    # Invalid Form Data
+    def test_UserForm_invalid(self):
+        form = MeetingForm(data={'meetingtittle': "soccer field", 'meetingdate': "02/22/2019", 'location': "seattle central", 'agenda': "practing soccer,shoting"})
+        self.assertFalse(form.is_valid())
